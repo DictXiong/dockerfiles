@@ -1,0 +1,16 @@
+Port 22
+
+# Authentication:
+LoginGraceTime 30s
+PermitRootLogin prohibit-password
+StrictModes yes
+MaxAuthTries 6
+MaxSessions 10
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys .ssh/authorized_keys2
+PasswordAuthentication no
+AllowAgentForwarding yes
+PubkeyAcceptedAlgorithms=+ssh-rsa
+
+# override default of no subsystems
+Subsystem       sftp    internal-sftp
