@@ -10,7 +10,7 @@ docker run -itd --restart always -p 36122:22 --hostname jump-$(hostname | awk -F
 
 ifname=$(echo -n br-;docker network inspect bridge2 | grep Id | awk -F '"' '{print $4}' | awk '{print substr($1,1,12)}')
 cat <<EOF
-you may need to run:
+you may need to run/conf:
 ip6tables -t nat -A PREROUTING ! -i $ifname -p tcp -m tcp --dport 36122 -j DNAT --to-destination "[$ip6]:22"
 EOF
 
