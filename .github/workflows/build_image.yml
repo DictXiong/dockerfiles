@@ -1,10 +1,12 @@
-name: "docker build image"
+name: "build jumpserver image"
 
 on:
-  push: ~
+  push:
+    paths:
+      - "jumpserver/**"
   workflow_dispatch: ~
 jobs:
-  jumpserver:
+  build:
     runs-on: ubuntu-latest
     steps:
       -
@@ -49,3 +51,4 @@ jobs:
             ${{ steps.meta.outputs.tags }}
             dictxiong/jumpserver:latest
           labels: ${{ steps.meta.outputs.labels }}
+
